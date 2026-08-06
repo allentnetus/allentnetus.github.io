@@ -579,7 +579,7 @@ WS_UI_PORT = '9711'
 | AI 模型 | Settings 测试连接成功 | 检查 endpoint、model ID、key 的本机/环境变量路径 |
 | MCP | 新 Codex 任务可见 Tolaria 工具 | 检查 Node、入口、`WS_UI_PORT` 和 Tolaria 是否已打开 |
 
-### 9.2 MCP 无法加载或没有工具
+### 10.2 MCP 无法加载或没有工具
 
 按顺序只读检查：
 
@@ -603,7 +603,7 @@ $env:WS_UI_PORT = '9711'
 - 端口不一致：`WS_UI_PORT` 必须与 Tolaria UI bridge 使用的端口一致，本机为 `9711`。
 - MCP 工具存在但访问不到笔记：先在 Tolaria 打开 Vault，再调用 `list_vaults` 或 `get_vault_context`。
 
-### 9.3 不相关的 PaddleOCR 故障不要误判为 Tolaria
+### 10.3 不相关的 PaddleOCR 故障不要误判为 Tolaria
 
 此前的 MCP 诊断曾发现 `paddleocr` 因 `paddleocr_mcp` 命令和 Python 包缺失而未加载；这是另一个 MCP 服务的独立依赖问题，和 Tolaria 的 Node/stdio 配置无关。排查 Tolaria 时不要因此改动 `D:\Tolaria` 或其插件配置。
 
