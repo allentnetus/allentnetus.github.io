@@ -1,0 +1,39 @@
+baseURL = "https://allentnetus.github.io/"
+title = "allentnetus"
+languageCode = "zh-CN"
+defaultContentLanguage = "zh"
+theme = "clarity"
+enableRobotsTXT = true
+
+[params]
+  description = "allentnetus 的个人主页"
+  introDescription = "记录我的工作、思考与正在探索的方向。"
+  mainSections = ["posts"]
+  enableSearch = false
+  enforceLightMode = true
+  mobileNavigation = "left"
+  showShare = false
+  since = 2026
+
+[author]
+  name = "allentnetus"
+
+[[menu.main]]
+  name = "首页"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "关于"
+  url = "/posts/welcome/"
+  weight = 2
+
+[[menu.main]]
+  name = "项目"
+  url = "/posts/projects/"
+  weight = 3
+
+[[menu.main]]
+  name = "联系"
+  url = "/posts/contact/"
+  weight = 4
