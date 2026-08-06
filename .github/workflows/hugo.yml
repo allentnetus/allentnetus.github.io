@@ -30,6 +30,13 @@ jobs:
       - name: Install Hugo Clarity
         run: git clone --depth 1 https://github.com/chipzoller/hugo-clarity.git themes/clarity
 
+      - name: Run site checks
+        shell: pwsh
+        run: |
+          ./scripts/test-article-standard.ps1
+          ./scripts/test-citation.ps1
+          ./scripts/test-share.ps1
+
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
