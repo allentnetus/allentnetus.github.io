@@ -14,6 +14,7 @@ foreach ($required in @(
   'ne .Type "page"',
   'partial "post-meta"',
   '{{- .Content }}',
+  'partial "article-citation" .',
   'partial "sidebar"'
 )) {
   if ($markup -notmatch [regex]::Escape($required)) {

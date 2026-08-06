@@ -261,29 +261,5 @@ AI Agent 可以协助判断，但以下动作应由用户明确授权：
 AI Agent 能让资料接收、整理、格式化和记录变得更快，但一套知识库真正的价值仍来自可解释性：原件是否还在、来源是否可查、分析是否基于足够证据、结论是否经过授权、反馈能否回流到下一轮实践。
 
 当 `D:\ABC-Vault` 中的每条资料都能沿着“收件箱 → 入库 → Project-ABC 的输入与输出 → 反馈与复用”的路径被理解时，知识库才不只是存放文件的地方，而会成为持续积累和协作决策的基础设施。
-{{< citation >}}
-
-## 引用
-
-请按以下方式引用本文：
-
-> “从收件箱到知识资产：AI Agent 知识库协作系统实践”。allentnetus（2026 年 8 月 6 日）。  
-> https://allentnetus.github.io/posts/ai-agent-knowledge-base/
-
-或者使用 BibTeX 引用：
-
-```bibtex
-@article{allentnetus2026knowledgebase,
-  title = {从收件箱到知识资产：AI Agent 知识库协作系统实践},
-  author = {allentnetus},
-  journal = {allentnetus.github.io},
-  year = {2026},
-  month = aug,
-  note = {Published: 2026-08-06},
-  url = "https://allentnetus.github.io/posts/ai-agent-knowledge-base/"
-}
-```
-
-{{< /citation >}}
 
 

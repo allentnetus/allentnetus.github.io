@@ -29,6 +29,9 @@
     <div class="post_body">
       {{- .Content }}
     </div>
+    {{- if $isStandardArticle }}
+      {{- partial "article-citation" . }}
+    {{- end }}
     {{- $showRelatedInArticle := $s.showRelatedInArticle }}
     {{- if eq $p.showRelatedInArticle true }}
       {{- $showRelatedInArticle = true }}

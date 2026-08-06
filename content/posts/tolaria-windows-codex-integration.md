@@ -11,8 +11,6 @@ tags:
 draft: false
 ---
 
-# Tolaria 安装使用全攻略（Windows / Codex 集成）
-
 > 适用对象：在 Windows 上将 Tolaria 用作本地 Markdown 知识库，并可选地接入 Codex 的用户。  
 > 本文基于 Tolaria 官方文档与四次实施会话整理；为便于复用，**文中所有磁盘路径统一以 `D:\` 为示例**。版本和发布包会持续变化，安装时以官方 Stable 下载页为准。
 
