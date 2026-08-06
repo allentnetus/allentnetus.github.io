@@ -9,7 +9,7 @@ if (-not (Test-Path -LiteralPath $partial)) {
 }
 
 $markup = Get-Content -LiteralPath $partial -Raw
-foreach ($required in @('navigator.share', 'navigator.clipboard.writeText', 'api.qrserver.com', 'x.com/intent/tweet', 'share-native', 'share-wechat', 'share-leading-icon', 'share-button', 'share-platform-icon', 'simpleicons.org/wechat/07C160', 'simpleicons.org/x/000000')) {
+foreach ($required in @('navigator.share', 'navigator.clipboard.writeText', 'api.qrserver.com', 'x.com/intent/tweet', 'share-native', 'share-wechat', 'share-leading-icon', 'share-button', 'share-platform-icon', 'share-copy-toast', 'simpleicons.org/wechat/07C160', 'simpleicons.org/x/000000')) {
   if ($markup -notmatch [regex]::Escape($required)) {
     throw "Missing share behavior: $required"
   }
@@ -41,6 +41,10 @@ if ($markup -notmatch 'share-share-icon \{[^}]*display: block;[^}]*justify-self:
 
 if ($markup -notmatch 'share-tools \.share-leading-icon \{[^}]*display: grid !important;[^}]*place-items: center;[^}]*margin: 0 !important') {
   throw 'The leading share icon container is still overridden by theme spacing.'
+}
+
+if ($markup -notmatch "(?s)share-copy-toast.*?classList\.add\('is-visible'\)") {
+  throw 'Copying the article link does not show a visible confirmation.'
 }
 
 if ($markup -notmatch 'post_meta \.page_only \{[^}]*margin-left: auto') {

@@ -22,6 +22,7 @@
     <img alt="使用微信扫码分享本文" loading="lazy">
     <span>微信扫码分享</span>
   </div>
+  <span class="share-copy-toast" role="status" aria-live="polite">链接已复制</span>
 </div>
 
 <style>
@@ -39,6 +40,8 @@
   .share-platform-icon { display: block; width: 1.45rem; height: 1.45rem; object-fit: contain; justify-self: center; align-self: center; margin: 0 !important; }
   .share-copy .icon { display: block; width: 1.2rem; height: 1.2rem; fill: currentColor; }
   .share-button.is-copied { border-color: #07c160; color: #07c160; background: #f1fbf4; }
+  .share-copy-toast { position: absolute; z-index: 11; right: 0; top: calc(100% + .6rem); padding: .36rem .62rem; border-radius: .32rem; background: #183c4b; color: #fff; font-size: .78rem; line-height: 1; opacity: 0; pointer-events: none; transform: translateY(-.25rem); transition: opacity .16s ease, transform .16s ease; visibility: hidden; }
+  .share-copy-toast.is-visible { opacity: 1; transform: translateY(0); visibility: visible; }
   .share-native { display: none; }
   .share-qr { position: absolute; z-index: 10; right: 0; top: calc(100% + .65rem); width: 13rem; padding: .8rem; background: #fff; border: 1px solid rgba(0, 0, 0, .14); border-radius: .5rem; box-shadow: 0 .45rem 1.2rem rgba(0, 0, 0, .16); text-align: center; }
   .share-qr img { display: block; width: 11rem; height: 11rem; margin: 0 auto .45rem; }
@@ -53,14 +56,17 @@
     var url = tool.dataset.shareUrl;
     var title = tool.dataset.shareTitle;
     var qr = tool.querySelector('.share-qr');
+    var toast = tool.querySelector('.share-copy-toast');
     var copy = function (button) {
       var done = function () {
         var originalLabel = button.getAttribute('aria-label');
         button.classList.add('is-copied');
         button.setAttribute('aria-label', '链接已复制');
+        toast.classList.add('is-visible');
         window.setTimeout(function () {
           button.classList.remove('is-copied');
           button.setAttribute('aria-label', originalLabel);
+          toast.classList.remove('is-visible');
         }, 1800);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
