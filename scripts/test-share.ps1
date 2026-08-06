@@ -27,6 +27,14 @@ if ($markup -notmatch 'share-button \{[^}]*border-radius: 999px') {
   throw 'Desktop sharing actions are not circular icon buttons.'
 }
 
+if ($markup -notmatch 'share-platform-icon \{[^}]*display: block;[^}]*width: 1.45rem;[^}]*height: 1.45rem;[^}]*object-fit: contain') {
+  throw 'Platform icons are not enlarged proportionally and centered within their buttons.'
+}
+
+if ($markup -notmatch 'share-copy \.icon \{[^}]*display: block;[^}]*width: 1.2rem;[^}]*height: 1.2rem') {
+  throw 'The copy icon is not enlarged proportionally and centered within its button.'
+}
+
 if ($markup -notmatch 'post_meta \.page_only \{[^}]*margin-left: auto') {
   throw 'The sharing group is not right-aligned independently from the tags.'
 }
