@@ -15,6 +15,14 @@ foreach ($required in @('navigator.share', 'navigator.clipboard.writeText', 'api
   }
 }
 
+if ($markup -notmatch 'share-label \{[^}]*line-height: 1') {
+  throw 'Share label is not vertically aligned with the share buttons.'
+}
+
+if ($markup -notmatch 'share-icon \{[^}]*stroke: #0086c9') {
+  throw 'Share icon is not using the bright accent color.'
+}
+
 if ((Get-Content -LiteralPath $config -Raw) -notmatch 'showShare = true') {
   throw 'Global article sharing is not enabled.'
 }
