@@ -2,6 +2,7 @@
 title: "关于我"
 date: 2026-08-06
 type: "page"
+showshare: false
 description: "个人简介占位"
 ---
 

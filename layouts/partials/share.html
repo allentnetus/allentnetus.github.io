@@ -1,0 +1,66 @@
+{{- $url := .Permalink -}}
+<div class="share-tools" data-share-url="{{ $url }}" data-share-title="{{ .Title }}">
+  <button class="share-native" type="button" aria-label="分享本文">分享</button>
+  <div class="share-desktop">
+    <button class="share-wechat" type="button" aria-expanded="false">微信</button>
+    <button class="share-copy" type="button">复制链接</button>
+    <a class="share-x" href="https://x.com/intent/tweet?text={{ .Title | urlquery }}&url={{ $url | urlquery }}" target="_blank" rel="noopener noreferrer">分享到 X</a>
+  </div>
+  <div class="share-qr" hidden role="dialog" aria-label="微信扫码分享">
+    <button class="share-close" type="button" aria-label="关闭">×</button>
+    <img alt="使用微信扫码分享本文" loading="lazy">
+    <span>微信扫码分享</span>
+  </div>
+</div>
+
+<style>
+  .share-tools { position: relative; display: inline-flex; align-items: center; font-size: .9rem; }
+  .share-desktop { display: inline-flex; gap: .45rem; align-items: center; }
+  .share-tools button, .share-x { border: 1px solid currentColor; border-radius: .35rem; background: transparent; color: inherit; cursor: pointer; font: inherit; line-height: 1; padding: .38rem .56rem; text-decoration: none; }
+  .share-tools button:hover, .share-x:hover { background: rgba(0, 128, 180, .1); }
+  .share-native { display: none; }
+  .share-qr { position: absolute; z-index: 10; right: 0; top: calc(100% + .65rem); width: 13rem; padding: .8rem; background: #fff; border: 1px solid rgba(0, 0, 0, .14); border-radius: .5rem; box-shadow: 0 .45rem 1.2rem rgba(0, 0, 0, .16); text-align: center; }
+  .share-qr img { display: block; width: 11rem; height: 11rem; margin: 0 auto .45rem; }
+  .share-close { position: absolute; right: .35rem; top: .28rem; border: 0 !important; padding: .15rem .35rem !important; font-size: 1.2rem !important; }
+  @media (max-width: 720px) { .share-desktop { display: none; } .share-native { display: inline-flex; } .share-qr { right: auto; left: 0; } }
+</style>
+
+<script>
+  document.addEventListener('click', function (event) {
+    var tool = event.target.closest('.share-tools');
+    if (!tool) return;
+    var url = tool.dataset.shareUrl;
+    var title = tool.dataset.shareTitle;
+    var qr = tool.querySelector('.share-qr');
+    var copy = function (button) {
+      var done = function () {
+        var original = button.textContent;
+        button.textContent = '已复制';
+        window.setTimeout(function () { button.textContent = original; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done);
+      } else {
+        window.prompt('复制文章链接', url);
+      }
+    };
+    if (event.target.closest('.share-native')) {
+      if (navigator.share) {
+        navigator.share({ title: title, text: title, url: url }).catch(function () {});
+      } else {
+        copy(event.target.closest('.share-native'));
+      }
+    }
+    if (event.target.closest('.share-copy')) copy(event.target.closest('.share-copy'));
+    if (event.target.closest('.share-wechat')) {
+      var image = qr.querySelector('img');
+      if (!image.src) image.src = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(url);
+      qr.hidden = !qr.hidden;
+      event.target.closest('.share-wechat').setAttribute('aria-expanded', String(!qr.hidden));
+    }
+    if (event.target.closest('.share-close')) {
+      qr.hidden = true;
+      tool.querySelector('.share-wechat').setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>

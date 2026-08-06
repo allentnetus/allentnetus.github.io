@@ -11,7 +11,7 @@ enableRobotsTXT = true
   enableSearch = false
   enforceLightMode = true
   mobileNavigation = "left"
-  showShare = false
+  showShare = true
   since = 2026
 
 [author]
