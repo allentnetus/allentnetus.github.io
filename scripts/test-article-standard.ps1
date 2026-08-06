@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $PSScriptRoot
-$layout = Join-Path $root 'layouts\posts\single.html'
+$layout = Join-Path $root 'layouts\_default\single.html'
 
 if (-not (Test-Path -LiteralPath $layout)) {
   throw 'Missing the standard article layout for posts.'
@@ -9,7 +9,9 @@ if (-not (Test-Path -LiteralPath $layout)) {
 
 $markup = Get-Content -LiteralPath $layout -Raw
 foreach ($required in @(
-  'post_content article-standard',
+  'article-standard',
+  'eq .Section "posts"',
+  'ne .Type "page"',
   'partial "post-meta"',
   '{{- .Content }}',
   'partial "sidebar"'

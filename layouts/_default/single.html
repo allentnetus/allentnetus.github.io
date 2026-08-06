@@ -2,6 +2,7 @@
 {{- $s := .Site.Params }}
 {{- $p := .Params }}
 {{- $scratch := newScratch }}
+{{- $isStandardArticle := and (eq .Section "posts") (ne .Type "page") }}
 {{- if isset $p "image" }}
   {{- $scratch.Set "image" $p.image }}
 {{- else }}
@@ -10,7 +11,7 @@
 {{- $image := $scratch.Get "image" }}
 {{- $bg := absLangURL (path.Join "images" $image) }}
 <div class="{{ if ne $p.singleColumn true }}grid-inverse {{ end }}wrap content">
-  <article class="post_content article-standard">
+  <article class="post_content{{ if $isStandardArticle }} article-standard{{ end }}">
     {{- $t := .Title }}
     <h1 class="post_title">{{ $t | markdownify }}</h1>
     {{- partial "post-meta" . }}
