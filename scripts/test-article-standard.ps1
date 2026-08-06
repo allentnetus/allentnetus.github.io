@@ -22,6 +22,10 @@ foreach ($required in @(
   }
 }
 
+if ($markup.IndexOf('{{- .Content }}') -ge $markup.IndexOf('partial "article-citation" .')) {
+  throw 'The automatic citation must render after the article body.'
+}
+
 foreach ($page in @('welcome.md', 'projects.md', 'contact.md')) {
   $frontMatter = Get-Content -LiteralPath (Join-Path $root "content\posts\$page") -Raw
   if ($frontMatter -notmatch 'type:\s*"page"') {
