@@ -35,6 +35,10 @@ if ($markup -notmatch 'share-copy \.icon \{[^}]*display: block;[^}]*width: 1.2re
   throw 'The copy icon is not enlarged proportionally and centered within its button.'
 }
 
+if ($markup -notmatch 'share-share-icon \{[^}]*display: block;[^}]*justify-self: center;[^}]*align-self: center;[^}]*margin: 0 !important') {
+  throw 'The leading share icon is not centered independently from the theme image spacing.'
+}
+
 if ($markup -notmatch 'post_meta \.page_only \{[^}]*margin-left: auto') {
   throw 'The sharing group is not right-aligned independently from the tags.'
 }
