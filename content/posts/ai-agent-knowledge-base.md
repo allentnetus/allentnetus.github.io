@@ -265,7 +265,7 @@ AI Agent 能让资料接收、整理、格式化和记录变得更快，但一�
 
 请按以下方式引用本文：
 
-> “从收件箱到知识资产：AI Agent 知识库协作系统实践”。allentnetus（2026 年 8 月）。  
+> “从收件箱到知识资产：AI Agent 知识库协作系统实践”。allentnetus（2026 年 8 月 6 日）。  
 > https://allentnetus.github.io/posts/ai-agent-knowledge-base/
 
 或者使用 BibTeX 引用：
@@ -276,8 +276,10 @@ AI Agent 能让资料接收、整理、格式化和记录变得更快，但一�
   author = {allentnetus},
   journal = {allentnetus.github.io},
   year = {2026},
-  month = {August},
+  month = aug,
+  note = {Published: 2026-08-06},
   url = "https://allentnetus.github.io/posts/ai-agent-knowledge-base/"
 }
 ```
+
 
