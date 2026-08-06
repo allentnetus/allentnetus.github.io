@@ -1,5 +1,14 @@
 {{- $url := .Permalink -}}
 <div class="share-tools" data-share-url="{{ $url }}" data-share-title="{{ .Title }}">
+  <span class="share-label">
+    <svg class="share-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="18" cy="5" r="2.5"></circle>
+      <circle cx="6" cy="12" r="2.5"></circle>
+      <circle cx="18" cy="19" r="2.5"></circle>
+      <path d="M8.2 10.8 15.8 6.2M8.2 13.2l7.6 4.6"></path>
+    </svg>
+    分享
+  </span>
   <button class="share-native" type="button" aria-label="分享本文">分享</button>
   <div class="share-desktop">
     <button class="share-wechat" type="button" aria-expanded="false">微信</button>
@@ -14,7 +23,9 @@
 </div>
 
 <style>
-  .share-tools { position: relative; display: inline-flex; align-items: center; font-size: .9rem; }
+  .share-tools { position: relative; display: inline-flex; align-items: center; gap: .55rem; margin-left: .35rem; padding-left: .7rem; border-left: 1px solid rgba(0, 0, 0, .2); font-size: .9rem; }
+  .share-label { display: inline-flex; align-items: center; gap: .28rem; font-weight: 600; white-space: nowrap; }
+  .share-icon { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
   .share-desktop { display: inline-flex; gap: .45rem; align-items: center; }
   .share-tools button, .share-x { border: 1px solid currentColor; border-radius: .35rem; background: transparent; color: inherit; cursor: pointer; font: inherit; line-height: 1; padding: .38rem .56rem; text-decoration: none; }
   .share-tools button:hover, .share-x:hover { background: rgba(0, 128, 180, .1); }

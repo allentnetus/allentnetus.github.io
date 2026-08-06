@@ -9,7 +9,7 @@ if (-not (Test-Path -LiteralPath $partial)) {
 }
 
 $markup = Get-Content -LiteralPath $partial -Raw
-foreach ($required in @('navigator.share', 'navigator.clipboard.writeText', 'api.qrserver.com', 'x.com/intent/tweet', 'share-native', 'share-wechat')) {
+foreach ($required in @('navigator.share', 'navigator.clipboard.writeText', 'api.qrserver.com', 'x.com/intent/tweet', 'share-native', 'share-wechat', 'share-label', 'share-icon')) {
   if ($markup -notmatch [regex]::Escape($required)) {
     throw "Missing share behavior: $required"
   }
