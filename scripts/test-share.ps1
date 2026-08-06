@@ -39,6 +39,10 @@ if ($markup -notmatch 'share-share-icon \{[^}]*display: block;[^}]*justify-self:
   throw 'The leading share icon is not centered independently from the theme image spacing.'
 }
 
+if ($markup -notmatch 'share-tools \.share-leading-icon \{[^}]*display: grid !important;[^}]*place-items: center;[^}]*margin: 0 !important') {
+  throw 'The leading share icon container is still overridden by theme spacing.'
+}
+
 if ($markup -notmatch 'post_meta \.page_only \{[^}]*margin-left: auto') {
   throw 'The sharing group is not right-aligned independently from the tags.'
 }
