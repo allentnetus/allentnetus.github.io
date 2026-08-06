@@ -27,7 +27,7 @@ if ($markup -notmatch 'share-button \{[^}]*border-radius: 999px') {
   throw 'Desktop sharing actions are not circular icon buttons.'
 }
 
-if ($markup -notmatch 'share-platform-icon \{[^}]*display: block;[^}]*width: 1.45rem;[^}]*height: 1.45rem;[^}]*object-fit: contain') {
+if ($markup -notmatch 'share-platform-icon \{[^}]*display: block;[^}]*width: 1.45rem;[^}]*height: 1.45rem;[^}]*object-fit: contain;[^}]*justify-self: center;[^}]*align-self: center') {
   throw 'Platform icons are not enlarged proportionally and centered within their buttons.'
 }
 
