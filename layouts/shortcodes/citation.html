@@ -18,7 +18,8 @@
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  (function () {
+    var addCopyControls = function () {
     document.querySelectorAll('.article-citation').forEach(function (citation) {
       citation.querySelectorAll('blockquote, pre').forEach(function (target) {
         var text = target.matches('pre') ? target.querySelector('code').textContent.trim() : target.innerText.trim();
@@ -51,5 +52,11 @@
         target.append(button, toast);
       });
     });
-  });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', addCopyControls);
+    } else {
+      addCopyControls();
+    }
+  })();
 </script>

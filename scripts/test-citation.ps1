@@ -13,7 +13,7 @@ if (-not (Test-Path -LiteralPath $shortcode)) {
 }
 
 $markup = Get-Content -LiteralPath $shortcode -Raw
-foreach ($required in @('article-citation', 'border-top', 'font-size: .88em', 'font-style: italic', 'opacity: .78', 'citation-copy-button', 'citation-copy-toast', 'navigator.clipboard.writeText', "classList.add('is-copied')", "classList.add('is-visible')")) {
+foreach ($required in @('article-citation', 'border-top', 'font-size: .88em', 'font-style: italic', 'opacity: .78', 'citation-copy-button', 'citation-copy-toast', 'navigator.clipboard.writeText', 'document.readyState', "classList.add('is-copied')", "classList.add('is-visible')")) {
   if ($markup -notmatch [regex]::Escape($required)) {
     throw "Missing citation presentation detail: $required"
   }
