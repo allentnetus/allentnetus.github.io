@@ -9,18 +9,26 @@ if (-not (Test-Path -LiteralPath $partial)) {
 }
 
 $markup = Get-Content -LiteralPath $partial -Raw
-foreach ($required in @('navigator.share', 'navigator.clipboard.writeText', 'api.qrserver.com', 'x.com/intent/tweet', 'share-native', 'share-wechat', 'share-label', 'share-icon')) {
+foreach ($required in @('navigator.share', 'navigator.clipboard.writeText', 'api.qrserver.com', 'x.com/intent/tweet', 'share-native', 'share-wechat', 'share-leading-icon', 'share-button', 'share-platform-icon', 'simpleicons.org/wechat/07C160', 'simpleicons.org/x/000000')) {
   if ($markup -notmatch [regex]::Escape($required)) {
     throw "Missing share behavior: $required"
   }
 }
 
-if ($markup -notmatch 'share-label \{[^}]*line-height: 1') {
-  throw 'Share label is not vertically aligned with the share buttons.'
+if ($markup -match 'share-label') {
+  throw 'The visible 分享 text label has not been removed.'
 }
 
-if ($markup -notmatch 'share-icon \{[^}]*stroke: #0086c9') {
-  throw 'Share icon is not using the bright accent color.'
+if ($markup -notmatch '(?s)share-wechat.*?share-x.*?share-copy') {
+  throw 'Copy link is not the final desktop sharing action.'
+}
+
+if ($markup -notmatch 'share-button \{[^}]*border-radius: 999px') {
+  throw 'Desktop sharing actions are not circular icon buttons.'
+}
+
+if ($markup -notmatch 'post_meta \.page_only \{[^}]*margin-left: auto') {
+  throw 'The sharing group is not right-aligned independently from the tags.'
 }
 
 if ((Get-Content -LiteralPath $config -Raw) -notmatch 'showShare = true') {
