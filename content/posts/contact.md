@@ -1,13 +1,13 @@
 ---
-title: "联系"
+title: "联系本人"
 date: 2026-08-06
-description: "联系方式占位"
+description: "联系本人"
 ---
 
 欢迎交流。
 
-- 邮箱：`your-email@example.com`
-- 社交主页：待补充
-- 合作或项目咨询：请通过邮箱联系
+- 邮箱：`plfeidifu@foxmail.com`
+- 社交主页：[https://allentnetus.github.io/](https://allentnetus.github.io/)
+- 合作或项目咨询：请通过邮箱plfeidifu@foxmail.com联系
 
-以上内容均为占位信息，可随时替换为你的真实联系方式。
+
