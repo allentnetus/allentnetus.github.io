@@ -5,6 +5,10 @@ type: "page"
 showshare: false
 description: "项目与案例"
 ---
+## Job Hunting Skill for DeepSeek Harness
+
+独立规划并实现面向求职场景的 DeepSeek Harness 插件与 Runtime Skill，覆盖简历解析、求职画像、岗位导入与匹配、报告生成、静态求职情报站和兴趣台账；集成 Tencent/BrowserSkill 只读采集，设计 Workspace 数据隔离、白名单、明确确认、限量限速、schema 迁移和发布门槛，形成可安装、可验证的本地优先 AI 求职工作流，采用 MIT 许可已发布至GitHub，访问地址：[https://github.com/allentnetus/dsh-job-hunting](https://github.com/allentnetus/dsh-job-hunting)
+
 
 ## 企业知识库问答 + 智能工单助手（Dify）
 
@@ -29,3 +33,4 @@ description: "项目与案例"
 ## 量化交易
 
 以缠论为策略框架，面向股票、基金、期货交易场景，抽象行情数据、信号识别、策略规则、回测验证、仓位管理和风险控制模块，沉淀数据建模、规则引擎和风控产品思维，可迁移至金融 AI、智能投顾和决策辅助类产品。
+
