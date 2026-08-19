@@ -8,7 +8,7 @@ tags:
   - Agent Harness
   - Coding Agent
 draft: false
-type: "知识领域"
+category: "知识领域"
 Status: Active
 source_url: "https://github.com/earendil-works/pi/"
 ---
