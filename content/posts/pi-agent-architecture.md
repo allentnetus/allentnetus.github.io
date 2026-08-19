@@ -1,8 +1,16 @@
 ---
-type: 知识领域
-Status: Active
-URL: "https://github.com/earendil-works/pi/"
+title: "Pi Agent 架构详解"
 date: 2026-08-19
+description: "Pi Agent 的整体架构、Agent Loop、Extensions、Skills、Memory、MCP 与安全边界。"
+tags:
+  - AI Agent
+  - Pi
+  - Agent Harness
+  - Coding Agent
+draft: false
+type: "知识领域"
+Status: Active
+source_url: "https://github.com/earendil-works/pi/"
 ---
 
 ## 1. 定位
