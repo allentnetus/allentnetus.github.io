@@ -56,4 +56,13 @@
     {{- partial "sidebar" . }}
   {{ end }}
 </div>
+{{- if $isStandardArticle }}
+<style>
+  @media (max-width: 600px) {
+    .article-standard .post_body .highlight { max-width: 100%; overflow-x: auto; }
+    .article-standard .post_body table { display: block; max-width: 100%; overflow-x: auto; }
+    .article-standard .post_body li { overflow-wrap: anywhere; }
+  }
+</style>
+{{- end }}
 {{- end }}
