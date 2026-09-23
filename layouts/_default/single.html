@@ -56,7 +56,7 @@
     {{- partial "sidebar" . }}
   {{ end }}
 </div>
-{{- if $isStandardArticle }}
+{{- if and $isStandardArticle (eq .File.TranslationBaseName "palantir-aip-architecture") }}
 <style>
   @media (max-width: 600px) {
     .article-standard .post_body .highlight { max-width: 100%; overflow-x: auto; }
