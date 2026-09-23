@@ -1,6 +1,9 @@
 ---
 title: "Palantir AIP 架构详解"
 date: 2026-09-23
+slug: "palantir-aip"
+aliases:
+  - "/posts/palantir-aip-architecture/"
 description: "Palantir AIP、Foundry、Apollo 与 Ontology 的架构关系，涵盖安全治理、互操作性、智能体与模型生态。"
 tags:
   - Palantir
